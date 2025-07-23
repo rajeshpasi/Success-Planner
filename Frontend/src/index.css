@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+
+/* Example: Remove or comment out any line like below if present */
+body {
+  background: url('./assets/vite.svg');
+}
