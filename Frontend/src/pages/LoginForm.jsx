@@ -30,8 +30,9 @@ const LoginForm = () => {
     try {
       const res = await axios.post(
       `${import.meta.env.VITE_API_URL}/api/auth/login`,
-      userData
-      );
+      userData,
+      { withCredentials: true } // cookie allow करो
+    );
 
       const { user } = res.data;
       // Set user in context

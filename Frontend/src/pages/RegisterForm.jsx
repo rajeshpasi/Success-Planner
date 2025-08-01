@@ -31,11 +31,14 @@ const RegisterForm = () => {
     };
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, newUser);
+      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/auth/register`, newUser,
+        { withCredentials: true } // cookie allow करो
+      );
       const data = response.data
       // Set user data in context
       setUser(data.user);
-      navigate('/login');
+      navigate('/home'); // Redirect to home page after successful registration
+      alert("Registration successful! Welcome to Success Planner.");
     } catch (error) {
       console.error("Registration failed:", error);
       alert(error.response?.data?.message || "Registration failed. Please try again.");

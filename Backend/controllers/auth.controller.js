@@ -123,7 +123,7 @@ export const googleAuth = async (req, res, next) => {
     }
 
     // 3️⃣ Check if user exists
-    let user = await userService.findByEmail(email);
+    let user = await userService.getUserByEmail(email);
 
     if (!user) {
       // 🔐 Create hashed random password
@@ -136,6 +136,7 @@ export const googleAuth = async (req, res, next) => {
         picture,
         password: hashedPassword,
         provider: "google",
+        terms: true, // <-- Add this line
       });
     }
 
@@ -159,7 +160,8 @@ export const googleAuth = async (req, res, next) => {
       },
     });
   } catch (err) {
-    console.error("Google login error:", err);
+    // If it's an axios error, the details are often in `err.response.data`
+    console.error("Google login error:", err.response?.data || err.stack || err);
     res.status(500).json({ error: "Server error during Google login" });
   }
 }
@@ -182,6 +184,3 @@ export const profile = (req, res) => {
     }
   });
 }
-
-
-
