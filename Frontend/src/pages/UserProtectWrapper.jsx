@@ -10,31 +10,22 @@ const UserProtectWrapper = ({ children }) => {
 
   useEffect(() => {
     const checkUserAuth = async () => {
-      const token = localStorage.getItem("token");
-
-      if (!token) {
-        navigate("/login", { replace: true });
-        return;
-      }
-
       try {
-        const res = await axios.get("http://localhost:5000/api/auth/profile", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_URL}/api/auth/profile`,
+          { withCredentials: true }
+        );
 
         console.log("Profile API response:", res.data);
 
-        // अगर response.data.user है तो:
-        if (res.status === 200) {
-          setUser(res.data.user || res.data); // दोनों case handle
+        const user = res.data.user || res.data;
+        if (res.status === 200 && user) {
+          setUser(user);
         } else {
-          throw new Error("Unauthorized");
+          throw new Error("Authentication failed: User data not found in response.");
         }
       } catch (error) {
-        console.error("Auth Error:", error.message);
-        localStorage.removeItem("token");
+        console.error("Auth Check Error:", error.response?.data?.message || error.message);
         navigate("/login");
       } finally {
         setIsLoading(false);

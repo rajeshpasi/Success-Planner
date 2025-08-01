@@ -7,7 +7,7 @@ import bcrypt from "bcrypt";
 const cookieConfig = {
   httpOnly: true,
   secure: false,
-  sameSite: "Strict",
+  sameSite: "Lax", // <-- Yeh karo
   maxAge: 24 * 60 * 60 * 1000, // 1 day
 }
 
@@ -113,7 +113,8 @@ export const googleAuth = async (req, res, next) => {
       `https://www.googleapis.com/oauth2/v3/userinfo?access_token=${access_token}`
     );
 
-    const { email, fullName: { firstName, lastName }, picture } = googleUser.data;
+    // Fix: Use correct fields from Google response
+    const { email, given_name: firstName, family_name: lastName, picture } = googleUser.data;
 
     if (!email) {
       return res
@@ -146,7 +147,7 @@ export const googleAuth = async (req, res, next) => {
     );
 
     // 5️⃣ Set cookie (same as normal login)
-    res.cookie("token", token, cookieOptions);
+    res.cookie("token", token, cookieConfig);
 
     res.status(200).json({
       message: "Google Login Successful",

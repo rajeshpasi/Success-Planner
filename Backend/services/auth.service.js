@@ -3,7 +3,7 @@ import User from "../models/user.model.js";
 
 
 const userService = {
-    async createUser({ fullName: {firstName, lastName}, email, password, role = "user", Picture, provider = "self", googleId }) {
+    async createUser({ fullName: {firstName, lastName}, email, password, role = "user", Picture, provider = "self", googleId, terms }) {
         const hashedPassword = await bcrypt.hash(password, 10);
         const user = new User({
             fullName: {firstName,lastName},
@@ -11,6 +11,7 @@ const userService = {
             password: hashedPassword,
             role,
             Picture,
+            terms,
             provider,
             googleId
         });

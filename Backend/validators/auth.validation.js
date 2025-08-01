@@ -16,6 +16,12 @@ export const registerSchema = z.object ({
   password: z.string({
     required_error: "Password is required",
   }).min(8, "Password must be at least 8 characters long").max(24, "Password must be at most 24 characters long"),
+  confirmPassword: z.string({
+    required_error: "Confirm password is required",
+    }).min(8, "Password must be at least 8 characters long").max(24, "Password must be at most 24 characters long"),
+  terms: z.boolean({
+    required_error: "You must accept the terms and conditions",
+  }),
 });
 
 // Validation schema for user login

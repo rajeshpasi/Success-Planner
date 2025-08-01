@@ -20,9 +20,9 @@ const RegisterForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const newUser = {
-      fullname: {
-        firstname: firstName,
-        lastname: lastName,
+      fullName: { // Capital 'N'
+        firstName, // Capital 'F'
+        lastName,  // Capital 'L'
       },
       email,
       password,
@@ -37,9 +37,8 @@ const RegisterForm = () => {
       setUser(data.user);
       navigate('/login');
     } catch (error) {
-      // Optionally, display an error message to the user
       console.error("Registration failed:", error);
-      // You can set an error state here if you want to show feedback in the UI
+      alert(error.response?.data?.message || "Registration failed. Please try again.");
     }
     // Reset form fields
     setFirstName("");
@@ -48,6 +47,7 @@ const RegisterForm = () => {
     setPassword("");
     setConfirmPassword("");
   };
+  
      // Google Login Handler
   const responseGoogle = async (authResult) =>{
     try {

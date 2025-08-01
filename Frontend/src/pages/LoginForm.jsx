@@ -7,8 +7,8 @@ import { useGoogleLogin } from "@react-oauth/google";
 const faviconUrl = "/favicon.png";
 
 const LoginForm = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("rezero@gm.com");
+  const [password, setPassword] = useState("pasi12345");
   const [remember, setRemember] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -33,15 +33,10 @@ const LoginForm = () => {
       userData
       );
 
-      const { token, user } = res.data;
-
-      if (remember) {
-      localStorage.setItem("token", token);
-      } else {
-      sessionStorage.setItem("token", token);
-      }
-
+      const { user } = res.data;
+      // Set user in context
       setUser(user);
+      alert("Login successful!");
 
       navigate("/home");
     } catch (err) {
