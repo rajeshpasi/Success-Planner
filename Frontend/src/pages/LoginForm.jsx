@@ -52,12 +52,12 @@ const LoginForm = () => {
     setRemember(false);
   };
 
-   // Google Login Handler
+     // Google Login Handler
   const responseGoogle = async (authResult) =>{
     try {
       if (authResult.code) {
          await axios.get(
-          `${import.meta.env.VITE_API_URL}/google?code=${authResult.code}`,
+          `${import.meta.env.VITE_API_URL}/api/auth/google?code=${authResult.code}`,
           { withCredentials: true } // cookie allow करो
         );
         console.log(authResult);     
@@ -79,8 +79,8 @@ const LoginForm = () => {
 
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-indigo-500">
-      <div className="bg-white px-10 py-10 rounded-xl shadow-lg min-w-[360px]">
+    <div className="min-h-screen flex items-center justify-center bg-indigo-500 ">
+      <div className="bg-white px-10 py-10 rounded-lg shadow-lg min-w-[360px] ">
         <div className="flex flex-col items-center mb-8">
           <img
             src={faviconUrl}
@@ -159,27 +159,15 @@ const LoginForm = () => {
         <div className="flex items-center justify-center mt-5 gap-4">
           <button
             onClick={handleGoogleLogin}
-            className="px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150"
+            className="px-4 py-2 w-screen border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150"
           >
             <img
               className="w-6 h-6"
               src="https://www.svgrepo.com/show/475656/google-color.svg"
               loading="lazy"
               alt="google logo"
-            />
+            /> <span className="text-sm font-semibold text-center align-middle text-gray-700 dark:text-gray-600">Login with Google</span>
             {/* <span>Login with Google</span> */}
-          </button>
-          <button
-            onClick={handleGoogleLogin}
-            className="px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150"
-          >
-            <img
-              className="w-6 h-6"
-              src="https://cdn-icons-png.flaticon.com/256/25/25231.png"
-              loading="lazy"
-              alt="github logo"
-            />
-            {/* <span>Login with GitHub</span> */}
           </button>
         </div>
       </div>
