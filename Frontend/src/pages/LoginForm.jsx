@@ -79,16 +79,16 @@ const LoginForm = () => {
 
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-indigo-500 ">
-      <div className="bg-white px-10 py-10 rounded-lg shadow-lg min-w-[360px] ">
+    <div className="min-h-screen flex items-center justify-center bg-indigo-500 px-2">
+      <div className="bg-white px-4 py-8 sm:px-8 sm:py-10 rounded-lg shadow-lg w-full max-w-md">
         <div className="flex flex-col items-center mb-8">
           <img
             src={faviconUrl}
             alt="Logo"
-            className="w-25 h-25 mb-2 rounded-full shadow-md"
+            className="w-20 h-20 mb-2 rounded-full shadow-md"
           />
-          <h2 className="m-0 font-semibold text-2xl">Welcome to Success Planner</h2>
-          <h5>Sign in to continue to your planner</h5>
+          <h2 className="m-0 font-semibold text-2xl text-center">Welcome to Success Planner</h2>
+          <h5 className="text-center">Sign in to continue to your planner</h5>
         </div>
 
         {error && (
@@ -122,7 +122,7 @@ const LoginForm = () => {
             />
           </div>
 
-          <div className="flex items-center justify-between">
+          <div className="login-remember-forgot flex flex-col sm:flex-row items-center justify-between gap-2">
             <div className="flex items-center">
               <input
                 checked={remember}
@@ -159,7 +159,7 @@ const LoginForm = () => {
         <div className="flex items-center justify-center mt-5 gap-4">
           <button
             onClick={handleGoogleLogin}
-            className="px-4 py-2 w-screen border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150"
+            className="px-4 py-2 w-full sm:w-auto border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150 justify-center"
           >
             <img
               className="w-6 h-6"
@@ -167,7 +167,6 @@ const LoginForm = () => {
               loading="lazy"
               alt="google logo"
             /> <span className="text-sm font-semibold text-center align-middle text-gray-700 dark:text-gray-600">Login with Google</span>
-            {/* <span>Login with Google</span> */}
           </button>
         </div>
       </div>

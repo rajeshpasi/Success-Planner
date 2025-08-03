@@ -1,7 +1,57 @@
 @import "tailwindcss";
 
-
 /* Example: Remove or comment out any line like below if present */
 body {
   background: url('./assets/vite.svg');
 }
+
+
+@media only screen and (max-width: 600px) {
+  .Form{
+   
+  }
+  .RegisterForm {
+
+  }
+  .RegisterForm .logo {
+    position: absolute;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+  }
+  .RegisterForm h2 {
+    font-size: 1.1rem;
+    line-height: 1.6rem;
+    margin-left: 50px; /* Logo ke right me heading */
+    text-align: left;
+  }
+  .RegisterForm h5 {
+    font-size: 0.95rem;
+    line-height: 1.2rem;
+    margin-left: 50px;
+    text-align: left;
+  }
+  .RegisterForm .name {
+    flex-direction: row;
+    gap: 8px;
+    
+  }
+  .RegisterForm .name .lastName{
+    margin-top: 0px;
+    
+  }
+  .RegisterForm input {
+    margin-bottom: none;
+  }
+
+  .login-remember-forgot {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-items: space-between;
+    gap: 8px;
+  }
+
+}
+
+

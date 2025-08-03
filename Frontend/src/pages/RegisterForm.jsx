@@ -77,24 +77,22 @@ const RegisterForm = () => {
 });
 
   return (
-    <div className='min-h-screen bg-indigo-500 flex items-center justify-center px-4'>
-      <div className='w-full max-w-xl bg-white rounded-2xl shadow-lg p-8'>
-       <div className="flex flex-col items-center mb-8">
+    <div className='Form min-h-screen bg-indigo-500 flex items-center justify-center sm:px-4'>
+      <div className='RegisterForm w-full max-w-xl bg-white rounded-2xl shadow-lg p-4 sm:p-8'>
+        <div className="flex flex-col items-center mb-8">
           <img
             src={faviconUrl}
             alt="Logo"
-            className="w-25 h-25 mb-2 rounded-full shadow-md"
+            className="logo w-20 h-20 mb-2 rounded-full shadow-md"
           />
-          <h2 className="m-0 font-semibold text-2xl">Welcome to Success Planner</h2>
-          <h5>Sign in to continue to your planner</h5>
+          <h2 className="m-0 font-semibold text-2xl text-center">Welcome to Success Planner</h2>
+          <h5 className="text-center">Sign in to continue to your planner</h5>
         </div>
 
-        <form onSubmit={(e) => {
-          handleSubmit(e)
-        }} className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           {/* Name Fields */}
-          <div className="flex flex-col sm:flex-row sm:gap-4">
-            <div className="w-full">
+          <div className="name flex flex-col sm:flex-row sm:gap-4">
+            <div className="firstName w-full">
               <label className="block mb-1 font-medium text-gray-700">First Name</label>
               <input
                 value={firstName}
@@ -105,7 +103,7 @@ const RegisterForm = () => {
                 required
               />
             </div>
-            <div className="w-full">
+            <div className="lastName w-full mt-4 sm:mt-0">
               <label className="block mb-1 font-medium text-gray-700">Last Name</label>
               <input
                 value={lastName}
@@ -157,26 +155,25 @@ const RegisterForm = () => {
             />
           </div>
           {/* Terms and Conditions */}
-          <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 font-semibold'>
-          <div className="flex items-center ">
-            <input
-              value={terms}
-              onChange={(e) => setTerms(e.target.checked)}
-              type="checkbox"
-              id="terms"
-              name="terms"
-              className="mr-2"
-              required
-            />
-            <label htmlFor="terms" className="text-sm text-gray-600">
-              I agree to the terms and conditions
-            </label>
-            </div> 
-            <div className="text-sm text-gray-600 ">
-            <Link to="/login" className="text-blue-600 hover:text-violet-600">Already have an account? Login</Link>
+          <div className='terms flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 font-semibold'>
+            <div className="flex items-center">
+              <input
+                checked={terms}
+                onChange={(e) => setTerms(e.target.checked)}
+                type="checkbox"
+                id="terms"
+                name="terms"
+                className="mr-2"
+                required
+              />
+              <label htmlFor="terms" className="text-sm text-gray-600">
+                I agree to the terms and conditions
+              </label>
+            </div>
+            <div className="text-sm text-gray-600 mt-2 sm:mt-0">
+              <Link to="/login" className="text-blue-600 hover:text-violet-600">Already have an account? Login</Link>
+            </div>
           </div>
-          </div>
-          
 
           {/* Register Button */}
           <button
@@ -187,31 +184,19 @@ const RegisterForm = () => {
           </button>
         </form>
         {/* Social Media Icons */}
-        <div className="flex items-center justify-center mt-5 gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-center mt-5 gap-4">
           <button
             onClick={handleGoogleLogin}
-            className="px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150"
+            className="px-4 py-2 w-full sm:w-auto border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150 justify-center"
           >
             <img
               className="w-6 h-6"
               src="https://www.svgrepo.com/show/475656/google-color.svg"
               loading="lazy"
               alt="google logo"
-            />
-            {/* <span>Login with Google</span> */}
+            /> <span className="text-sm font-semibold text-center align-middle text-gray-700 dark:text-gray-600">Register with Google</span>
           </button>
-          <button
-            onClick={handleGoogleLogin}
-            className="px-4 py-2 border flex gap-2 border-slate-200 dark:border-slate-700 rounded-lg text-slate-700 dark:text-slate-200 hover:border-slate-400 dark:hover:border-slate-500 hover:text-slate-900 dark:hover:text-slate-300 hover:shadow transition duration-150"
-          >
-            <img
-              className="w-6 h-6"
-              src="https://cdn-icons-png.flaticon.com/256/25/25231.png"
-              loading="lazy"
-              alt="github logo"
-            />
-            {/* <span>Login with GitHub</span> */}
-          </button>
+
         </div>
       </div>
     </div>
