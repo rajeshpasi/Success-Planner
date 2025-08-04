@@ -1,8 +1,10 @@
 import React from 'react'
 
-const YearlyPlanner = () => {
+function YearlyPlanner() {
   return (
-    <div>YearlyPlanner</div>
+    <div className="p-8">
+      <h1 className="text-2xl font-bold">Yearly Planner</h1>
+    </div>
   )
 }
 

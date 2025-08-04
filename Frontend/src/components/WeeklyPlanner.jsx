@@ -1,8 +1,10 @@
 import React from 'react'
 
-const WeeklyPlanner = () => {
+function WeeklyPlanner() {
   return (
-    <div>WeeklyPlanner</div>
+    <div className="p-8">
+      <h1 className="text-2xl font-bold">Weekly Planner</h1>
+    </div>
   )
 }
 
