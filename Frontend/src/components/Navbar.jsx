@@ -1,12 +1,13 @@
 import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+  const location = useLocation();
 
-  const routeName = () => {
-    const path = window.location.pathname.substring(1);
-    return path.charAt(0).toUpperCase() + path.slice(1) || "Dashboard";
-  };
+  // Get the current route name from the location object and capitalize it.
+  const path = location.pathname.substring(1);
+  const routeName = path.charAt(0).toUpperCase() + path.slice(1) || "Dashboard";
 
   return (
     <nav>
@@ -16,7 +17,7 @@ const Navbar = () => {
           <span
             className='hidden md:block ml-52 text-gray-600 text-md font-bold'
           >
-            {routeName()}
+            {routeName}
           </span>
         </div>
 
