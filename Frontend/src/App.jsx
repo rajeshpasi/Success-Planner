@@ -12,6 +12,7 @@ import YearlyPlanner from './components/YearlyPlanner';
 import MonthlyPlanner from './components/MonthlyPlanner';
 import WeeklyPlanner from './components/WeeklyPlanner';
 import Todo from './components/Todo';
+import CreatePlanner from './components/CreatePlanner'
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="/monthly" element={<MonthlyPlanner />} />
         <Route path="/weekly" element={<WeeklyPlanner />} />
         <Route path="/todo" element={<Todo />} />
+        <Route path="create" element={<CreatePlanner />} />
         <Route path="/logout" element={<Logout />} />
       </Route>
     </Routes>

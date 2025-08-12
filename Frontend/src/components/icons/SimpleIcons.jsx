@@ -35,3 +35,45 @@ export const TrendDownIcon = ({ className = "w-4 h-4", color = "currentColor" })
     <path d="M7 10l5 5 5-5z"/>
   </svg>
 );
+
+export const PlusIcon = ({ className = "w-4 h-4", color = "currentColor" }) => (
+  <svg className={className} fill={color} viewBox="0 0 24 24">
+    <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+  </svg>
+);
+
+export const CloseIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
+  <svg className={className} fill={color} viewBox="0 0 24 24">
+    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+  </svg>
+);
+
+export const WorkIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
+  <svg className={className} fill={color} viewBox="0 0 24 24">
+    <path d="M10 16V8a1 1 0 011-1h2a1 1 0 011 1v8a1 1 0 01-1 1h-2a1 1 0 01-1-1zM6 16V10a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1H7a1 1 0 01-1-1zM14 16V12a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 01-1 1h-2a1 1 0 01-1-1z"/>
+  </svg>
+);
+
+export const PersonalIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
+  <svg className={className} fill={color} viewBox="0 0 24 24">
+    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+  </svg>
+);
+
+export const HealthIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
+  <svg className={className} fill={color} viewBox="0 0 24 24">
+    <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+  </svg>
+);
+
+export const LearningIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
+  <svg className={className} fill={color} viewBox="0 0 24 24">
+    <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z"/>
+  </svg>
+);
+
+export const FinanceIcon = ({ className = "w-6 h-6", color = "currentColor" }) => (
+  <svg className={className} fill={color} viewBox="0 0 24 24">
+    <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
+  </svg>
+);

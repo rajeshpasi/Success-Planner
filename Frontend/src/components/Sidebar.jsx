@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-const Sidebar = () => {
+import { PlusIcon } from "./icons/SimpleIcons";
+const Sidebar = ({ onCreatePlannerClick }) => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const isActive = (path) => location.pathname === path;
@@ -36,6 +37,16 @@ const Sidebar = () => {
         <Link to="/todo" className={`flex items-center gap-2 text-gray-700 hover:text-indigo-600 ${isActive("/todo") ? "text-indigo-600" : ""}`}>
           <i className={`fas fa-list mr-3 ${isActive("/todo") ? "text-indigo-600" : "text-gray-400"}`}></i> Todo List
         </Link>
+        
+        {/* Create New Planner Button */}
+        <button 
+          onClick={onCreatePlannerClick}
+          className="flex items-center gap-2 bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors duration-200 mt-4 w-full"
+        >
+          <PlusIcon className="w-4 h-4" color="white" />
+          Create New Planner
+        </button>
+        
         <span className="text-xs font-semibold text-gray-400 mt-6 mb-2">ACCOUNT</span>
         <Link to="/logout" className={`flex items-center gap-2 text-gray-700 hover:text-indigo-600 ${isActive("/logout") ? "text-indigo-600" : ""}`}>
           <i className={`fas fa-sign-out-alt mr-3 ${isActive("/logout") ? "text-indigo-600" : "text-gray-400"}`}></i> Logout

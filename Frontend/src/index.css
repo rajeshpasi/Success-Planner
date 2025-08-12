@@ -17,6 +17,13 @@
   gap: 1.5rem;
 }
 
+/* Modal backdrop blur effect */
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
 
 @media only screen and (max-width: 600px) {
   .Form{
@@ -65,4 +72,3 @@
   }
 
 }
-
