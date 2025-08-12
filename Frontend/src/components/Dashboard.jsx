@@ -68,7 +68,7 @@ const Dashboard = () => {
           />
         </div>
 
-        {/* Goal Progress Chart - Full Width */}
+        {/* Goal Progress Chart - Bottom Full Width */}
         <div className="lg:col-span-2">
           <LineChart 
             data={data.goalProgressData}
