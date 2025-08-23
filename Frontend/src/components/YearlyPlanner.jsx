@@ -3,11 +3,15 @@ import YearNavigationHeader from './yearly/YearNavigationHeader';
 import MonthlyProgressCard from './yearly/MonthlyProgressCard';
 import YearlyGoalItem from './yearly/YearlyGoalItem';
 import ImportantDateItem from './yearly/ImportantDateItem';
+import MonthlyDetailView from './monthly/MonthlyDetailView';
 import { mockRootProps } from '../data/yearlyPlannerMockData';
+import { getMonthlyData } from '../data/monthlyDetailMockData';
 
 const YearlyPlanner = () => {
   const [currentYear, setCurrentYear] = useState(mockRootProps.currentYear);
   const [yearlyGoals, setYearlyGoals] = useState(mockRootProps.yearlyGoals);
+  const [selectedMonth, setSelectedMonth] = useState(null);
+  const [showMonthlyDetail, setShowMonthlyDetail] = useState(false);
 
   const handleYearChange = (newYear) => {
     setCurrentYear(newYear);
@@ -22,6 +26,34 @@ const YearlyPlanner = () => {
       )
     );
   };
+
+  const handleMonthClick = (monthData) => {
+    console.log('Month clicked:', monthData); // Debug log
+    setSelectedMonth({
+      month: monthData.month,
+      year: currentYear,
+      monthIndex: monthData.monthIndex
+    });
+    setShowMonthlyDetail(true);
+  };
+
+  const handleBackToYearView = () => {
+    setShowMonthlyDetail(false);
+    setSelectedMonth(null);
+  };
+
+  if (showMonthlyDetail && selectedMonth) {
+    const monthlyData = getMonthlyData(selectedMonth.monthIndex, selectedMonth.month);
+    return (
+      <MonthlyDetailView
+        selectedMonth={selectedMonth}
+        tasks={monthlyData.tasks}
+        monthSummary={monthlyData.monthSummary}
+        taskCategories={monthlyData.taskCategories}
+        onBackToYearView={handleBackToYearView}
+      />
+    );
+  }
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
@@ -38,6 +70,7 @@ const YearlyPlanner = () => {
             <MonthlyProgressCard 
               key={monthData.month}
               monthData={monthData}
+              onClick={() => handleMonthClick(monthData)}
             />
           ))}
         </div>

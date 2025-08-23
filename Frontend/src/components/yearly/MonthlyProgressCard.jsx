@@ -2,11 +2,22 @@ import React from 'react';
 import { TasksIcon, TrophyIcon } from '../icons/SimpleIcons';
 import { formatTaskCount, formatCompletedCount, formatGoalCount, formatMonthProgress } from '../../data/yearlyPlannerMockData';
 
-const MonthlyProgressCard = ({ monthData }) => {
+const MonthlyProgressCard = ({ monthData, onClick }) => {
   const { month, monthIndex, totalTasks, completedTasks, totalGoals, progressPercentage } = monthData;
 
+  const handleClick = (e) => {
+    e.preventDefault();
+    console.log('Card clicked for month:', month); // Debug log
+    if (onClick) {
+      onClick(monthData);
+    }
+  };
+
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-all duration-300 hover:scale-105">
+    <div 
+      className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 hover:shadow-md transition-all duration-300 hover:scale-105 cursor-pointer"
+      onClick={handleClick}
+    >
       {/* Month Header */}
       <div className="flex items-center justify-between mb-4">
         <h3 className="text-lg font-semibold text-gray-800">{month}</h3>
