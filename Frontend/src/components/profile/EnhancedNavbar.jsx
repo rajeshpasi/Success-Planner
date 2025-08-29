@@ -1,21 +1,23 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faRockrms, faErlang } from '@fortawesome/free-brands-svg-icons';
-import NotificationPanel from './profile/NotificationPanel';
-import SettingsPanel from './profile/SettingsPanel';
-import Tooltip from './common/Tooltip';
+import { faRockrms, faErlang, faBity } from '@fortawesome/free-brands-svg-icons';
+import NotificationPanel from './NotificationPanel';
+import SettingsPanel from './SettingsPanel';
+import Tooltip from '../common/Tooltip';
 
-const Navbar = ({ 
+const EnhancedNavbar = ({ 
   user, 
   notifications = [], 
   onNotificationAction,
   onPreferencesChange,
-  onSecurityAction 
+  onSecurityAction,
+  showNotifications,
+  showSettings,
+  onToggleNotifications,
+  onToggleSettings
 }) => {
   const [open, setOpen] = useState(false);
-  const [showNotifications, setShowNotifications] = useState(false);
-  const [showSettings, setShowSettings] = useState(false);
   const location = useLocation();
 
   // Get the current route name from the location object and capitalize it.
@@ -57,24 +59,22 @@ const Navbar = ({
 
           <div className="hidden md:flex items-center gap-4">
             {/* Profile Info */}
-            {/* {user && (
-              <div className="flex items-center gap-2">
-                <img 
-                  src={user?.avatar || 'https://i.pravatar.cc/150?img=1'} 
-                  alt="Profile" 
-                  className="w-8 h-8 rounded-full border-2 border-gray-200"
-                />
-                <div className="text-right">
-                  <p className="text-sm font-medium text-gray-800">{user?.name || 'John Doe'}</p>
-                  <p className="text-xs text-gray-500">{user?.email || 'john@example.com'}</p>
-                </div>
+            <div className="flex items-center gap-2">
+              <img 
+                src={user?.avatar || 'https://i.pravatar.cc/150?img=1'} 
+                alt="Profile" 
+                className="w-8 h-8 rounded-full border-2 border-gray-200"
+              />
+              <div className="text-right">
+                <p className="text-sm font-medium text-gray-800">{user?.name || 'John Doe'}</p>
+                <p className="text-xs text-gray-500">{user?.email || 'john@example.com'}</p>
               </div>
-            )} */}
+            </div>
 
             {/* Notifications */}
             <Tooltip message="Notifications" position="bottom">
               <button
-                onClick={() => setShowNotifications(!showNotifications)}
+                onClick={() => onToggleNotifications && onToggleNotifications()}
                 className="relative p-2 text-gray-600 hover:text-indigo-600 transition-colors"
               >
                 <FontAwesomeIcon 
@@ -92,7 +92,7 @@ const Navbar = ({
             {/* Settings */}
             <Tooltip message="Settings" position="bottom">
               <button
-                onClick={() => setShowSettings(!showSettings)}
+                onClick={() => onToggleSettings && onToggleSettings()}
                 className="p-2 text-gray-600 hover:text-indigo-600 transition-colors"
               >
                 <FontAwesomeIcon 
@@ -125,26 +125,8 @@ const Navbar = ({
         </div>
       </nav>
 
-      {/* Notification Panel */}
-      <NotificationPanel
-        notifications={notifications}
-        isOpen={showNotifications}
-        onClose={() => setShowNotifications(false)}
-        onMarkAsRead={handleMarkAsRead}
-        onMarkAllAsRead={handleMarkAllAsRead}
-        onNotificationClick={handleNotificationClick}
-      />
-
-      {/* Settings Panel */}
-      <SettingsPanel
-        preferences={user?.preferences}
-        isOpen={showSettings}
-        onClose={() => setShowSettings(false)}
-        onPreferencesChange={onPreferencesChange}
-        onSecurityAction={onSecurityAction}
-      />
     </>
   );
 };
 
-export default Navbar;
+export default EnhancedNavbar;

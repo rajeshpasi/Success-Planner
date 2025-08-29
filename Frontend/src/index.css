@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 :root{
@@ -5,6 +6,46 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: 'Inter', system-ui, sans-serif;
+  
+  /* Enhanced theme colors extended for profile/settings */
+  --color-profile-bg: #f8fafc;
+  --color-profile-card: #ffffff;
+  --color-profile-border: #e2e8f0;
+  --color-profile-text: #1e293b;
+  --color-profile-text-muted: #64748b;
+  
+  /* Notification specific colors */
+  --color-notification-unread: #3b82f6;
+  --color-notification-read: #94a3b8;
+  --color-notification-urgent: #ef4444;
+  --color-notification-high: #f59e0b;
+  --color-notification-medium: #10b981;
+  --color-notification-low: #6b7280;
+  
+  /* Settings panel colors */
+  --color-settings-active: #4f46e5;
+  --color-settings-hover: #f1f5f9;
+  --color-settings-border: #cbd5e1;
+  
+  /* Achievement badge colors */
+  --color-achievement-gold: #fbbf24;
+  --color-achievement-silver: #94a3b8;
+  --color-achievement-bronze: #d97706;
+  
+  /* Status colors */
+  --color-status-active: #10b981;
+  --color-status-inactive: #6b7280;
+  --color-status-suspended: #ef4444;
+  
+  /* Interactive elements */
+  --color-toggle-active: #4f46e5;
+  --color-toggle-inactive: #d1d5db;
+  
+  /* Shadows for profile components */
+  --shadow-profile-card: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --shadow-profile-hover: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-notification: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 #root {
@@ -21,7 +62,18 @@
 .modal-backdrop {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced modal and panel styles */
+.notification-panel, .settings-panel {
+  box-shadow: var(--shadow-notification);
+  z-index: 1000;
+}
+
+.profile-card-hover:hover {
+  box-shadow: var(--shadow-profile-hover);
+  transform: translateY(-2px);
 }
 
 /* Yearly Planner Animations */
@@ -96,6 +148,57 @@
   background: #94a3b8;
 }
 
+
+/* Dark theme overrides for profile/settings */
+[data-theme="dark"] {
+  --color-profile-bg: #0f172a;
+  --color-profile-card: #1e293b;
+  --color-profile-border: #334155;
+  --color-profile-text: #f1f5f9;
+  --color-profile-text-muted: #94a3b8;
+  
+  --color-settings-hover: #334155;
+  --color-settings-border: #475569;
+}
+
+/* Mobile responsive utilities */
+.touch-manipulation {
+  touch-action: manipulation;
+}
+
+/* Mobile-first responsive grid improvements */
+@media (max-width: 640px) {
+  .monthly-calendar-day {
+    min-height: 60px !important;
+  }
+  
+  .monthly-stats-card {
+    padding: 0.75rem !important;
+  }
+  
+  .monthly-header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .monthly-view-toggle {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Enhanced mobile modal styles */
+@media (max-width: 768px) {
+  .modal-backdrop {
+    padding: 1rem;
+  }
+  
+  .notification-panel, .settings-panel {
+    width: calc(100vw - 2rem);
+    max-width: none;
+    margin: 0 1rem;
+  }
+}
 
 @media only screen and (max-width: 600px) {
   .Form{
