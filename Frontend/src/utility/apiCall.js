@@ -6,3 +6,6 @@ const api = axios.create({
 });
 
 export const googleAuth = (code) => api.get(`/google?code=${code}`);
+
+// Add profile API call
+export const getUserProfile = () => api.get('/auth/profile');
