@@ -85,7 +85,7 @@ const Dashboard = () => {
           </div>
 
           {/* Task Categories Chart */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 ">
             <ModernChart 
               data={data.taskCategories}
               title="Task Categories"

@@ -136,7 +136,7 @@ const Sidebar = ({ onCreatePlannerClick }) => {
       </nav>
       {/* Profile Info */}
       {!loading && (
-        <div className="flex items-center gap-2 p-4 border-t-2 border-gray-100 mt-auto">
+        <div className="flex items-center gap-2 p-4 border-t-2 border-gray-100 mt-40">
           <img
             src={getUserAvatar()}
             alt="Profile"
