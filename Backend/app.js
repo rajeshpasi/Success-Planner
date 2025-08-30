@@ -7,6 +7,8 @@ import dotenv from "dotenv";
 
 // 🛣️ Routes
 import authRoutes from "./routes/auth.route.js";
+import plannerRoutes from "./routes/plannner.route.js";
+
 
 // 🛑 Error Middleware
 import { errorHandler } from "./middlewares/error.middleware.js";
@@ -30,6 +32,9 @@ app.use(morgan("dev"));             // Log incoming requests
 
 // 🛣️ API Routes
 app.use("/api/auth", authRoutes);
+// प्लानर के लिए API रूट जोड़ें
+app.use("/api/planner", plannerRoutes);
+
 
 // ❌ Global Error Handler (last middleware)
 app.use(errorHandler);

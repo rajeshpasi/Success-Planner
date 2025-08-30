@@ -1,18 +1,18 @@
-import React from 'react';
-import LandingPage from "./pages/Landing"
-import './styles/scrollbar.css';
-import {Route, Routes, Navigate } from 'react-router-dom';
-import RegisterForm from './pages/RegisterForm';
-import LoginForm from './pages/LoginForm';
-import UserProtectWrapper from './pages/UserProtectWrapper';
-import Logout from './pages/Logout';
-import Home from './components/Home';
-import Dashboard from './components/Dashboard';
-import YearlyPlanner from './components/YearlyPlanner';
-import MonthlyPlanner from './components/MonthlyPlanner';
-import WeeklyPlanner from './components/WeeklyPlanner';
-import Todo from './components/Todo';
-import CreatePlanner from './components/CreatePlanner'
+import React from "react";
+import LandingPage from "./pages/Landing";
+import "./styles/scrollbar.css";
+import { Route, Routes, Navigate } from "react-router-dom";
+import RegisterForm from "./pages/RegisterForm";
+import LoginForm from "./pages/LoginForm";
+import UserProtectWrapper from "./pages/UserProtectWrapper";
+import Logout from "./pages/Logout";
+import Home from "./components/Home";
+import Dashboard from "./components/Dashboard";
+import YearlyPlanner from "./components/YearlyPlanner";
+import MonthlyPlanner from "./components/MonthlyPlanner";
+import WeeklyPlanner from "./components/WeeklyPlanner";
+import Todo from "./components/Todo";
+import TaskForm from './components/common/TaskForm';
 
 const App = () => {
   return (
@@ -37,7 +37,7 @@ const App = () => {
         <Route path="/monthly" element={<MonthlyPlanner />} />
         <Route path="/weekly" element={<WeeklyPlanner />} />
         <Route path="/todo" element={<Todo />} />
-        <Route path="create" element={<CreatePlanner />} />
+        <Route path="create" element={<TaskForm />} />
         <Route path="/logout" element={<Logout />} />
       </Route>
     </Routes>

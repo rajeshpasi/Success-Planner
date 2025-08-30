@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import Modal from './Modal';
-import CreatePlannerModal from './CreatePlannerModal';
 import { Outlet } from 'react-router-dom';
 import { mockStore } from '../data/settingsProfileMockData';
+import TaskForm from './common/TaskForm';
+
 
 const Home = () => {
   const [isCreateModalOpen, setIsCreateModalOpen] = useState(false);
@@ -66,7 +67,7 @@ const Home = () => {
         onClose={() => setIsCreateModalOpen(false)}
         title="Create New Planner"
       >
-        <CreatePlannerModal
+        <TaskForm
           onClose={() => setIsCreateModalOpen(false)}
           onSubmit={handleCreatePlanner}
         />

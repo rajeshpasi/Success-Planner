@@ -118,10 +118,10 @@ const TaskForm = ({ task, onSubmit, onCancel }) => {
         />
       </div>
 
-      {/* Due Date */}
+      {/* Starting Date */}
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">
-          Due Date <span className="text-red-500">*</span>
+         Date <span className="text-red-500">*</span>
         </label>
         <input
           type="date"
